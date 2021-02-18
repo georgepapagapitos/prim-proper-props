@@ -1,9 +1,9 @@
-function SilverWare({ guestList }) {
+function SilverWare({ name, count }) {
   return (
     <>
-      <div>Spoons: {guestList.length * 2}</div>
-      <div>Forks: {guestList.length * 2}</div>
-      <div>Knives: {guestList.length * 2}</div>
+      <div>
+        {name}: {count}
+      </div>
     </>
   );
 }
