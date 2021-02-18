@@ -55,6 +55,20 @@ function App() {
     }
   };
 
+  const removeGuest = (event) => {
+    console.log('event', event.target);
+    let guestId = event.target.dataset.id;
+    axios
+      .delete(`/guests/${guestId}`)
+      .then((response) => {
+        getGuests();
+      })
+      .catch((error) => {
+        console.log('removeGuest error', error);
+      });
+  };
+
+  console.log(guestList);
   console.log(newGuestMeal);
   return (
     <div className="App">
@@ -67,7 +81,7 @@ function App() {
         setNewGuestMeal={setNewGuestMeal}
         handleSubmit={handleSubmit}
       />
-      <GuestList guestList={guestList} />
+      <GuestList guestList={guestList} removeGuest={removeGuest} />
       <DinnerSupplies guestList={guestList} />
       <Footer />
     </div>
